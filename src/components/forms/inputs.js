@@ -30,7 +30,8 @@ class BloomerInput extends Component {
         </Control>
         {
           touched &&
-            (error && <Help isColor='danger'>{error}</Help>)
+            ((error && <Help isColor='danger'>{error}</Help>) ||
+              (warning && <Help isColor='warning'>{warning}</Help>))
         }
       </Field>
     )

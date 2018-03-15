@@ -14,6 +14,7 @@ import {
   Button,
 } from 'bloomer'
 import isEmail from 'validator/lib/isEmail'
+import isAlphanumeric from 'validator/lib/isAlphanumeric'
 
 import { BloomerInput } from './forms/inputs'
 
@@ -22,6 +23,11 @@ import { BloomerInput } from './forms/inputs'
 const required = value => (value ? undefined : 'Required')
 const validEmail = value =>
   value && isEmail(value) ? undefined : 'Must be a valid email'
+
+// Warnings
+const alphanumeric = value =>
+  value && isAlphanumeric(value) ? undefined : 'Must be alpha numeric'
+
 
 
 class SignupForm extends Component {
@@ -36,6 +42,7 @@ class SignupForm extends Component {
           placeholder="First Name"
           type="text"
           validate={[required]}
+          warn={alphanumeric}
         />
         <Field
           component={BloomerInput}
