@@ -11,7 +11,6 @@ import {
 
 class BloomerInput extends Component {
   render() {
-    console.log("props", this.props)
     const {
       input,
       placeholder,

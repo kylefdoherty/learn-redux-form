@@ -28,6 +28,13 @@ const validEmail = value =>
 const alphanumeric = value =>
   value && isAlphanumeric(value) ? undefined : 'Must be alpha numeric'
 
+// Normalizers
+const formatPhone = value => {
+  if (!value) { return value }
+
+  const number = value.replace(/[^\d]/g, '')
+  return number
+}
 
 
 class SignupForm extends Component {
@@ -54,6 +61,7 @@ class SignupForm extends Component {
         <Field
           component={BloomerInput}
           name="phone"
+          normalize={formatPhone}
           placeholder="Phone"
           type="text"
           validate={[required]}
