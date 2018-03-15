@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import {
   Field,
-  Icon,
   Input,
-  Label,
   Control,
   Help,
 } from 'bloomer'
-
 
 class BloomerInput extends Component {
   render() {

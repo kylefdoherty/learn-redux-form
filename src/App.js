@@ -7,7 +7,7 @@ import {
   NavbarItem,
 } from 'bloomer'
 
-import SignupForm from './components/signup-form'
+import SimpleReduxForm from './containers/simple-redux-form'
 
 class App extends Component {
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
             isSize='1/3'
             style={{ height: 'auto', border: '1px solid #00d1b2', padding: '2em' }}
           >
-            <SignupForm />
+            <SimpleReduxForm />
           </Column>
         </Columns>
       </div>
