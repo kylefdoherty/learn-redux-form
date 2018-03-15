@@ -36,13 +36,19 @@ const formatPhone = value => {
   return number
 }
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 class SignupForm extends Component {
+  onSubmit = (formData) => {
+    console.log("Submit", formData)
+    return sleep(3000).then(() => {})
+  }
+
   render() {
     const { handleSubmit } = this.props
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
           component={BloomerInput}
           name="firstName"
@@ -68,8 +74,11 @@ class SignupForm extends Component {
         />
         <Button
           style={{ marginTop: '1em' }}
-          isColor='success'
-          isOutlined>Submit
+          isColor="primary"
+          type="submit"
+          isLoading={this.props.submitting}
+        >
+          Submit
         </Button>
       </form>
     )
